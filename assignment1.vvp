@@ -1,0 +1,96 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x115e04290 .scope module, "circuit" "circuit" 2 1;
+ .timescale 0 0;
+v0x600001ca4990_0 .var "a", 0 0;
+v0x600001ca4a20_0 .var "b", 0 0;
+v0x600001ca4ab0_0 .var "c", 0 0;
+v0x600001ca4b40_0 .net "d", 0 0, L_0x6000005a09a0;  1 drivers
+v0x600001ca4bd0_0 .net "e", 0 0, L_0x6000005a0a10;  1 drivers
+v0x600001ca4c60_0 .net "z", 0 0, L_0x6000005a0a80;  1 drivers
+S_0x115e04400 .scope module, "uut1" "andComp1" 2 5, 2 52 0, S_0x115e04290;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "c";
+    .port_info 2 /OUTPUT 1 "d";
+L_0x6000005a0930 .functor NOT 1, v0x600001ca4ab0_0, C4<0>, C4<0>, C4<0>;
+L_0x6000005a09a0 .functor AND 1, v0x600001ca4990_0, L_0x6000005a0930, C4<1>, C4<1>;
+v0x600001ca43f0_0 .net *"_ivl_0", 0 0, L_0x6000005a0930;  1 drivers
+v0x600001ca4480_0 .net "a", 0 0, v0x600001ca4990_0;  1 drivers
+v0x600001ca4510_0 .net "c", 0 0, v0x600001ca4ab0_0;  1 drivers
+v0x600001ca45a0_0 .net "d", 0 0, L_0x6000005a09a0;  alias, 1 drivers
+S_0x115e06c70 .scope module, "uut2" "andComp2" 2 11, 2 59 0, S_0x115e04290;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "c";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "e";
+L_0x6000005a0a10 .functor AND 1, v0x600001ca4ab0_0, v0x600001ca4a20_0, C4<1>, C4<1>;
+v0x600001ca4630_0 .net "b", 0 0, v0x600001ca4a20_0;  1 drivers
+v0x600001ca46c0_0 .net "c", 0 0, v0x600001ca4ab0_0;  alias, 1 drivers
+v0x600001ca4750_0 .net "e", 0 0, L_0x6000005a0a10;  alias, 1 drivers
+S_0x115e06de0 .scope module, "uut3" "orComp" 2 17, 2 66 0, S_0x115e04290;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "d";
+    .port_info 1 /INPUT 1 "e";
+    .port_info 2 /OUTPUT 1 "z";
+L_0x6000005a0a80 .functor OR 1, L_0x6000005a09a0, L_0x6000005a0a10, C4<0>, C4<0>;
+v0x600001ca47e0_0 .net "d", 0 0, L_0x6000005a09a0;  alias, 1 drivers
+v0x600001ca4870_0 .net "e", 0 0, L_0x6000005a0a10;  alias, 1 drivers
+v0x600001ca4900_0 .net "z", 0 0, L_0x6000005a0a80;  alias, 1 drivers
+    .scope S_0x115e04290;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4990_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4a20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4a20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4990_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4a20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4a20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600001ca4ab0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x115e04290;
+T_1 ;
+    %vpi_call 2 47 "$display", "INPUT\011OUTPUT" {0 0 0};
+    %vpi_call 2 48 "$monitor", "a = %b b = %b c = %b d = %b e = %b z = %b", v0x600001ca4990_0, v0x600001ca4a20_0, v0x600001ca4ab0_0, v0x600001ca4b40_0, v0x600001ca4bd0_0, v0x600001ca4c60_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "assignment1.v";

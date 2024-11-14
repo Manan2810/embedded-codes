@@ -1,0 +1,53 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x130e07390 .scope module, "andGate" "andGate" 2 1;
+ .timescale 0 0;
+v0x130e1ba70_0 .var "a", 0 0;
+v0x130e1bb10_0 .var "b", 0 0;
+v0x130e1bbc0_0 .net "c", 0 0, L_0x130e1bc90;  1 drivers
+S_0x130e07500 .scope module, "uut" "andComp" 2 4, 2 25 0, S_0x130e07390;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "c";
+L_0x130e1bc90 .functor AND 1, v0x130e1ba70_0, v0x130e1bb10_0, C4<1>, C4<1>;
+v0x130e09160_0 .net "a", 0 0, v0x130e1ba70_0;  1 drivers
+v0x130e1b8d0_0 .net "b", 0 0, v0x130e1bb10_0;  1 drivers
+v0x130e1b970_0 .net "c", 0 0, L_0x130e1bc90;  alias, 1 drivers
+    .scope S_0x130e07390;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x130e1ba70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x130e1bb10_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x130e1bb10_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x130e1ba70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x130e1bb10_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x130e1bb10_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x130e07390;
+T_1 ;
+    %vpi_call 2 20 "$display", "INPUT\011OUTPUT" {0 0 0};
+    %vpi_call 2 21 "$monitor", "a = %b b = %b c = %b", v0x130e1ba70_0, v0x130e1bb10_0, v0x130e1bbc0_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "andModule.v";
